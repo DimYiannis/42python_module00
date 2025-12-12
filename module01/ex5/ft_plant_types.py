@@ -42,28 +42,22 @@ class Vegetable(Plant):
         self.nutritional_value = nutritional_value
 
 
-def ft_create_flower(name, height, age, color, bloom):
-    flower = Flower(name, height, age, color, bloom)
-    print(
-        f"{flower.name} ({type(flower).__name__}): {flower.height}cm, {flower.age} days, {flower.color} color"
-    )
-    print(f"{flower.name} is {flower.ft_bloom()}\n")
+def ft_create_flower(n, h, a, c, bloom):
+    fl = Flower(n, h, a, c, bloom)
+    print(f"{fl.n} ({type(fl).__name__}): {fl.h}cm, {fl.a} days, {fl.c} color")
+    print(f"{fl.n} is {fl.ft_bloom()}\n")
 
 
-def ft_create_tree(name, height, age, trunk_diameter, shade):
-    tree = Tree(name, height, age, trunk_diameter, shade)
-    print(
-        f"{tree.name} ({type(tree).__name__}): {tree.height}cm, {tree.age} days, {tree.trunk_diameter}cm diameter"
-    )
-    print(f"{tree.name} {tree.produce_shade()}\n")
+def ft_create_tree(n, h, a, d, shade):
+    t = Tree(n, h, a, d, shade)
+    print(f"{t.n} ({type(t).__name__}): {t.h}cm, {t.a} days, {t.d}cm diameter")
+    print(f"{t.n} {t.produce_shade()}\n")
 
 
-def ft_create_veg(name, height, age, harvest_season, nutritional_value):
-    v = Vegetable(name, height, age, harvest_season, nutritional_value)
-    print(
-        f"{v.name} ({type(v).__name__}): {v.height}cm, {v.age} days, {v.harvest_season}"
-    )
-    print(f"{v.name} is rich in vitamin {v.nutritional_value}")
+def ft_create_veg(name, h, age, hrv_sn, nutri_val):
+    v = Vegetable(name, h, age, hrv_sn, nutri_val)
+    print(f"{v.name} ({type(v).__name__}): {v.h}cm, {v.age} days, {v.hrv_sn}")
+    print(f"{v.name} is rich in vitamin {v.nutri_val}")
 
 
 if __name__ == "__main__":

@@ -43,33 +43,33 @@ def ft_check_height(plant, height):
         print(f"Height updated: {plant.get_height()} days [OK]")
 
 
-def ft_update_age(plant, new_age):
+def ft_update_age(p, new_age):
     if new_age < 0:
         print(f"Invalid operation attempted: age {new_age} days [REJECTED]")
         print("Security: Negative age rejected")
         print(
-            f"Current plant: {plant.name} ({plant.get_height()}cm, {plant.get_age()} days)"
+            f"Current plant: {p.name} ({p.get_height()}cm, {p.get_age()} days)"
         )
     else:
-        plant.set_age(new_age)
-        print(f"Age updated: {plant.get_age()} days [OK]")
+        p.set_age(new_age)
+        print(f"Age updated: {p.get_age()} days [OK]")
         print(
-            f"Current plant: {plant.name} ({plant.get_height()}cm, {plant.get_age()} days)"
+            f"Current plant: {p.name} ({p.get_height()}cm, {p.get_age()} days)"
         )
 
 
-def ft_update_height(plant, new_height):
+def ft_update_height(p, new_height):
     if new_height < 0:
         print(f"Invalid operation attempted: height {new_height}cm [REJECTED]")
         print("Security: Negative height rejected\n")
         print(
-            f"Current plant: {plant.name} ({plant.get_height()}cm, {plant.get_age()} days)"
+            f"Current plant: {p.name} ({p.get_height()}cm, {p.get_age()} days)"
         )
     else:
-        plant.set_height(new_height)
-        print(f"Height updated: {plant.get_height()}cm [OK]")
+        p.set_height(new_height)
+        print(f"Height updated: {p.get_height()}cm [OK]")
         print(
-            f"Current plant: {plant.name} ({plant.get_height()}cm, {plant.get_age()} days)"
+            f"Current plant: {p.name} ({p.get_height()}cm, {p.get_age()} days)"
         )
 
 
