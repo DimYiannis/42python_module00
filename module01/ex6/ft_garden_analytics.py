@@ -28,12 +28,12 @@ class GardenManager:
                 total += 1
             return total
 
-    @classmethod
-    def create_garden_network(cls):
-        total = 0
-        for g in self.gardens:
-            total += 1
-        return total
+        @classmethod
+        def create_garden_network(cls):
+            total = 0
+            for g in cls.gardens:
+                total += 1
+            return total
 
 
 class Garden:
@@ -50,43 +50,44 @@ class Garden:
         print("Plants in garden:")
 
         total_plants = 0
-        reg_count = 0
-        fl_count = 0
-        pr_count = 0
+        t_c = 0
+        f_c = 0
+        p_c = 0
         gard_score = 0
         height_check = 0
 
-        for plant in self.plants:
-            if type(plant).__name__ == "FloweringPlant":
+        for p in self.plants:
+            if type(p).__name__ == "FloweringPlant":
                 print(
-                    f"- {plant.name}: {plant.height}cm, {plant.color} flowers (blooming)"
+                    f"- {p.name}: {p.height}cm, {p.color} flowers (blooming)"
                 )
-                fl_count += 1
+                f_c += 1
                 total_plants += 1
-            elif type(plant).__name__ == "PrizeFlower":
+            elif type(p).__name__ == "PrizeFlower":
+                message = "flowers (blooming), Prize points:"
                 print(
-                    f"- {plant.name}: {plant.height}cm, {plant.color} flowers (blooming), Prize points: {plant.points}"
+                    f"- {p.name}: {p.height}cm, {p.color} {message} {p.points}"
                 )
-                pr_count += 1
+                p_c += 1
                 total_plants += 1
             else:
-                print(f"- {plant.name}: {plant.height}cm")
-                reg_count += 1
+                print(f"- {p.name}: {p.height}cm")
+                t_c += 1
                 total_plants += 1
-            gard_score = gard_score + plant.height
-            if type(plant).__name__ == "PrizeFlower":
-                gard_score = gard_score + plant.points
-            if plant.height > 0:
+            gard_score = gard_score + p.height
+            if type(p).__name__ == "PrizeFlower":
+                gard_score = gard_score + p.points
+            if p.height > 0:
                 height_check = 1
 
         print(f"\nPlants added: {total_plants} Total growth: {total_growth}cm")
         print(
-            f"Plant types: {reg_count} regular {fl_count} flowering, {pr_count}, prize flowers\n"
+            f"Plant types: {t_c} regular {f_c} flowering, {p_c}, prize flowers"
         )
         if height_check == 1:
-            print("Height validation test: True")
+            print("\nHeight validation test: True")
         else:
-            print("Height validation test: False")
+            print("\nHeight validation test: False")
         print(f"Garden scores - {self.name}  : {gard_score}")
 
     def grow_plants(self):
