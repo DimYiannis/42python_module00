@@ -71,12 +71,14 @@ class Garden:
 
         for p in self.plants:
             if type(p).__name__ == "FloweringPlant":
-                print(f"- {p.name}: {p.height}cm," f"{p.color} flowers (blooming)")
+                print(f"- {p.name}: {p.height}cm,"
+                      f"{p.color} flowers (blooming)")
                 f_c += 1
                 total_plants += 1
             elif type(p).__name__ == "PrizeFlower":
                 message = "flowers (blooming), Prize points:"
-                print(f"- {p.name}: {p.height}cm," f"{p.color} {message} {p.points}")
+                print(f"- {p.name}: {p.height}cm,"
+                      f"{p.color} {message} {p.points}")
                 p_c += 1
                 total_plants += 1
             else:
@@ -87,7 +89,8 @@ class Garden:
                 height_check = 1
 
         print(f"\nPlants added: {total_plants} Total growth: {total_growth}cm")
-        print(f"Plant types: {t_c} regular {f_c}," f"flowering, {p_c}, prize flowers")
+        print(f"Plant types: {t_c} regular {f_c},"
+              f"flowering, {p_c}, prize flowers")
         if height_check == 1:
             print("\nHeight validation test: True")
         else:
