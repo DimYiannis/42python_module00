@@ -1,3 +1,9 @@
+"""
+func to check for diff types of default python errors
+catch multiple errors with diff except blocks or even in one.
+"""
+
+
 def test_error_types(num, div, file, data, key):
 
     try:
@@ -37,6 +43,11 @@ def test_error_types(num, div, file, data, key):
         value = data[key]
     except Exception:
         print("Caught an error, but program continues!")
+
+
+"""
+demonstarte the errors
+"""
 
 
 def garden_operations():

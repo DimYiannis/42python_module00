@@ -1,3 +1,10 @@
+"""
+classes that throw errors
+gardenerror is a new exception type
+that inherits from exception
+"""
+
+
 class GardenError(Exception):
     def __init__(self, message):
         Exception.__init__(self, message)
@@ -11,6 +18,12 @@ class PlantError(GardenError):
 class WaterError(GardenError):
     def __init__(self, message):
         GardenError.__init__(self, message)
+
+
+"""
+funcs that throw an exception using raise
+type of planterror and watererror
+"""
 
 
 def check_plant():

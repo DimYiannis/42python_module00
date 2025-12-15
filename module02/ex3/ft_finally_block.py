@@ -1,3 +1,9 @@
+"""
+used finally block to always dipslay a message in the try/except
+in this func we go through eac plant and water it unless the name is invalid
+"""
+
+
 def water_plants(plant_list):
     print("Opening watering system")
     try:
@@ -9,6 +15,12 @@ def water_plants(plant_list):
         print(f"Error: {e}")
     finally:
         print("Closing watering system (cleanup)")
+
+
+"""
+create a list of plants and use
+the above func for very plant in that list
+"""
 
 
 def test_watering_system():
