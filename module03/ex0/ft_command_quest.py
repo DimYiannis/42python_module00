@@ -14,6 +14,3 @@ else:
         print(f"Argument {j}: {sys.argv[j]}")
         j += 1
     print(f"Total arguments: {len(sys.argv)}")
-
-
-

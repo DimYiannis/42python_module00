@@ -1,8 +1,12 @@
 import sys
+
 print("=== Player Score Analytics ===")
 
 if len(sys.argv) == 1:
-    print("No scores provided. Usage: python3 ft_score_analytics.py <score2> <score2> ...")
+    print(
+        "No scores provided. Usage: python3"
+        "ft_score_analytics.py <score2> <score2> ..."
+    )
 else:
     scores = []
     for arg in sys.argv[1:]:
