@@ -23,7 +23,7 @@ def test_error_types(num, div, file, data, key):
     try:
         print("\nTesting FileNotFoundError...")
         with open(file, "r") as f:
-            f.read()
+            print("The file exists.")
     except FileNotFoundError:
         print(f"Caught FileNotFoundError: No such file '{file}' ")
 
@@ -39,7 +39,7 @@ def test_error_types(num, div, file, data, key):
         x = int(num)
         y = 10 / div
         with open(file, "r") as f:
-            f.read()
+            print(f"The file {f} exists.")
         value = data[key]
     except Exception:
         print("Caught an error, but program continues!")

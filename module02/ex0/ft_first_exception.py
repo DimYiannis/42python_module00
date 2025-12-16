@@ -1,6 +1,7 @@
 """
 we use try except bloke to check if the
-value of temp
+value of temp is acceptible, throw value
+error if input is not int
 """
 
 
