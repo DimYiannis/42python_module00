@@ -1,96 +1,68 @@
-
-inventories = dict()
-
-
 """
-setting up dicts that work as inventories
+creating sets of achievements
 """
 
-
-inventories["Alice"] = {
-    "sword": {"type": "weapon", "rarity": "rare", "qty": 1, "value": 500},
-    "potion": {"type": "consumable", "rarity": "common", "qty": 5, "value": 50}
-    "shield": {"type": "armor", "rarity": "uncommon", "qty":1, "value": 200}
+alice_set = {"first_kill", "level_10", "treasure_hunter", "speed_demon"}
+bob_set = {"first_kill", "level_10", "boss_slayer", "collector"}
+charlie_set = {
+    "level_10",
+    "treasure_hunter",
+    "boss_slayer",
+    "speed_demon",
+    "perfectionist",
 }
 
-inventories["Bob"] = {
-    "portion": {"type": "consumable", "rarity": "common", "qty": 0, "value": 50}
-}
+print("=== Achievement Tracker System ===")
+
+print(f"Player alice achievements: {alice_set}")
+print(f"Player bob achievements: {bob_set}")
+print(f"Player charlie achievements: {charlie_set}\n")
+
 
 """
-func where we show Alice's inventory
+use union to get all the unique achievements
 """
 
-def show_inventory(player):
-    print(f"==={player}'s Inventory ===")
-    inv = inventories.get(player, dict())
-    total_value = 0
-    total_items = 0
-    category_count = dict()
-    for item, info in inv.items():
-        qty = info.get("qty", 0)
-        val = info.get("value", 0)
-        typ = infor.get("type", "unknown")
-        rarity = info.get("rarity", "common")
-        print(f"{item} ({typ}, {rarity}): {qty}x {val} gold each = {qty*val} gold")
-        total_values += qty*val
-        total_items += qty
-        category_count[typ] = category_count.get(typ, 0)+qty
 
-    print(f"Inventory value: {total_value} gold")
-    print(f"Item count: {total_items} items")
-    for k,v in category_count.items())
-        cat_summary = ", ".join(f"{k}({v})" 
-    print(f"Categories: {cat_summary}\n")
+print("=== Achievement Analytics ===")
+all_unique = alice_set.union(bob_set, charlie_set)
+print(f"All unique achievements: {all_unique}")
+print(f"Total unique achievements: {len(all_unique)}\n")
 
-show_inventory("Alice")
 
-print("=== Transaction: Alice gives Bob 2 potions ===")
-alice_inv = inventories.get("Alice")
-bob_inv = inventories.get("Bon")
-if alice_inv.get("portion", dict()).get("qty", 0) >= 2:
-    alice_inv["portion"]["qty"] -= 2
-    if "portion" not in bob_inv:
-        bob_inv["potion"] = {"type":"consumable","rarity":"common","qty":0,"value":50}
-    bob_inv["potion"]["qty"] += 2
-    print("Transaction successful!\n")
+"""
+- with intersection method we get the common achievements
+- make a set of rare achievements and see
+how many players have them
+- add to the rare_found_in_players set rare achievements
+  found from each player using |=
+"""
+
+common_to_all = alice_set.intersection(bob_set, charlie_set)
+print(f"Common to all players: {common_to_all}")
+
+rare = {"collector", "perfectionist"}
+rare_found_in_players = set()
+player_count = 0
+if rare.intersection(alice_set):
+    player_count += 1
+    rare_found_in_players |= rare.intersection(alice_set)
+if rare.intersection(bob_set):
+    player_count += 1
+    rare_found_in_players |= rare.intersection(bob_set)
+if rare.intersection(charlie_set):
+    player_count += 1
+    rare_found_in_players |= rare.intersection(charlie_set)
+
+if player_count > 1:
+    message = f"{player_count} players"
+elif player_count == 1:
+    message = f"{player_count} player"
 else:
-    print("Transaction failed!\n")
+    message = "no players"
 
+print(f"Rare achievements ({message}): {rare_found_in_players}\n")
 
-"""
-Show updated inventories
-"""
-print("=== Updated Inventories ===")
-print(f"Alice potions: {alice_inv.get('potion',dict()).get('qty',0)}")
-print(f"Bob potions: {bob_inv.get('potion',dict()).get('qty',0)}\n")
-
-
-"""
-Inventory Analytics
-"""
-
-
-print("=== Inventory Analytics ===")
-most_valuable = ("",0)
-most_items = ("",0)
-rarest_items = []
-
-for player, inv in inventories.items():
-    total_value = 0
-    total_qty = 0
-    for item, info in inv.items():
-        total_value += info.get("qty",0)*info.get("value",0)
-        total_qty += info.get("qty",0)
-        if info.get("rarity","common") == "rare":
-            rarest_items.append(item)
-    if total_value > most_valuable[1]:
-        most_valuable = (player,total_value)
-    if total_qty > most_items[1]:
-        most_items = (player,total_qty)
-
-print(f"Most valuable player: {most_valuable[0]} ({most_valuable[1]} gold)")
-print(f"Most items: {most_items[0]} ({most_items[1]} items)")
-print(f"Rarest items: {', '.join(rarest_items)}")
-
-
+print(f"Alice vs Bob common: {alice_set.intersection(bob_set)}")
+print(f"Alice unique: {alice_set.difference(bob_set)}")
+print(f"Bob unique: {bob_set.difference(alice_set)}")
