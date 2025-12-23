@@ -1,5 +1,9 @@
 def crisis_handler(filename, routine=False):
-    """Handles archive access attempts."""
+    """
+    - Handle archive access during routine operations or crisis situations.
+    - open and read file and report whether access is ok or
+        triggered by a crisis, and handles common failure.
+    """
     try:
         if routine:
             print(f"ROUTINE ACCESS: Attempting access to '{filename}'...")
@@ -24,7 +28,6 @@ def crisis_handler(filename, routine=False):
 
 
 if __name__ == "__main__":
-    """main"""
     print("=== CYBER ARCHIVES - CRISIS RESPONSE SYSTEM ===\n")
 
     crisis_handler("lost_archive.txt")
