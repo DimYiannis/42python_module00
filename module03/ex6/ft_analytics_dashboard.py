@@ -1,13 +1,19 @@
-
 players = ["alice", "bob", "charlie", "diana"]
 scores = [2300, 1800, 2150, 2050]
-achievements = {"alice": ["first_kill", "level_10", "quest_complete", "treasure_hunter"],
-                "bob": ["speed_run", "level_5", "quest_complete"], 
-                "charlie": ["level_5", "boss_slayer", "quest_complete", 
-                "treasure_hunter", "arena_champion", "speed_run"],
-                "diana": ["treasure_hunter","arena_champion", "quest_complete"]}
-active = {"alice": True, "bob": True, "charlie": True,
-        "diana": False}
+achievements = {
+    "alice": ["first_kill", "level_10", "quest_complete", "treasure_hunter"],
+    "bob": ["speed_run", "level_5", "quest_complete"],
+    "charlie": [
+        "level_5",
+        "boss_slayer",
+        "quest_complete",
+        "treasure_hunter",
+        "arena_champion",
+        "speed_run",
+    ],
+    "diana": ["treasure_hunter", "arena_champion", "quest_complete"],
+}
+active = {"alice": True, "bob": True, "charlie": True, "diana": False}
 regions = ["north", "east", "central", "north"]
 
 if __name__ == "__main__":
@@ -15,9 +21,7 @@ if __name__ == "__main__":
 
     print("\n=== List Comprehension Examples ===")
 
-    high_scorers = [players[i]
-                    for i in range(len(scores))
-                    if scores[i] > 2000]
+    high_scorers = [players[i] for i in range(len(scores)) if scores[i] > 2000]
     print(f"High scorers (>2000): {high_scorers}")
 
     scores_doubled = [score * 2 for score in scores]
@@ -28,26 +32,25 @@ if __name__ == "__main__":
 
     print("\n=== Dict Comprehension Examples ===")
 
-    player_scores = {players[i]: scores[i] 
+    player_scores = {
+        players[i]: scores[i]
         for i in range(len(players))
         if active[players[i]]
     }
     print(f"player scores : {player_scores}")
 
     score_categories = {
-        'high': len([s for s in scores if s > 2000]),
-        'medium': len([s for s in scores if 1900 <= s <= 2000]),
-        'low': len([s for s in scores if s < 1900])
+        "high": len([s for s in scores if s > 2000]),
+        "medium": len([s for s in scores if 1900 <= s <= 2000]),
+        "low": len([s for s in scores if s < 1900]),
     }
     print(f"Score categories: {score_categories}")
 
     achievements_counts = {
-        player: len(achievements[player]) 
-        for player in achievements
-        if active[player]
+        player: len(achievements[player])
+        for player in achievements if active[player]
     }
     print(f"Achievement counts: {achievements_counts}")
-
 
     print("\n=== Set Comprehension Examples ===")
 
@@ -82,8 +85,11 @@ if __name__ == "__main__":
     print(f"Average score: {avg_score}")
 
     max_score = max(scores)
-    max_score_index = [i for i in range(len(scores)) if scores[i] == max_score][0]
+    max_score_index = [i for i in range(len(scores))
+                       if scores[i] == max_score][0]
     top_player = players[max_score_index]
     top_achievements = len(achievements[top_player])
-    print(f"Top performer: {top_player} ({max_score} points, {top_achievements} achievements)")
- 
+    print(
+        f"Top performer: {top_player} ({max_score} points,"
+        f"{top_achievements} achievements)"
+    )
