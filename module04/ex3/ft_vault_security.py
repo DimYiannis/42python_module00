@@ -1,26 +1,27 @@
 if __name__ == "__main__":
     """main"""
-    print("=== CYBER ARCHIVES - VAULT SECURITY SYSTEM ===")
+    print("=== CYBER ARCHIVES - VAULT SECURITY SYSTEM ===\n")
+    
     print("Initiating secure vault access...")
-    print("\nVault connection established with failsafe protocols")
+    print("Vault connection established with failsafe protocols")
 
     extraction_filename = "../classified_data.txt"
-    with open(extraction_filename, "w") as vault:
-        vault.write("{[}CLASSIFIED{]} Quantum encryption keys recovered\n")
-        vault.write("{[}CLASSIFIED{]} Archive integrity: 100%\n")
+    with open(extraction_filename, "w") as data:
+        data.write("{[}CLASSIFIED{]} Quantum encryption keys recovered\n")
+        data.write("{[}CLASSIFIED{]} Archive integrity: 100%\n")
 
     print("\nSECURE EXTRACTION:")
-    with open(extraction_filename, "r") as vault:
-        data = vault.read()
-        print(data)
+    with open(extraction_filename, "r") as data:
+        res = data.read()
+        print(res)
 
     preservation_filename = "../security_protocols.txt"
     print("SECURE PRESERVATION:")
-    with open(preservation_filename, "w") as vault:
-        vault.write("{[}CLASSIFIED{]} New security protocols archived\n")
+    with open(preservation_filename, "w") as data:
+        data.write("{[}CLASSIFIED{]} New security protocols archived")
 
-    with open(preservation_filename, "r") as vault:
-        print(vault.read())
+    with open(preservation_filename, "r") as data:
+        print(data.read())
 
-    print("Vault automatically sealed upon completion")
+    print("Vault automatically sealed upon completion\n")
     print("All vault operations completed with maximum security.")
