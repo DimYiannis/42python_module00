@@ -27,9 +27,9 @@ if __name__ == "__main__":
     """main"""
     print("=== CYBER ARCHIVES - CRISIS RESPONSE SYSTEM ===\n")
 
-    crisis_handler("../lost_archive.txt")
+    crisis_handler("lost_archive.txt")
     print("")
-    crisis_handler("../classified_vault.txt")
+    crisis_handler("classified_vault.txt")
     print("")
-    crisis_handler("../standard_archive.txt", routine=True)
+    crisis_handler("standard_archive.txt", routine=True)
     print("\nAll crisis scenarios handled successfully. Archives secure.")

@@ -1,7 +1,7 @@
 if __name__ == "__main__":
     """main"""
     print("=== CYBER ARCHIVES - VAULT SECURITY SYSTEM ===\n")
-    
+
     print("Initiating secure vault access...")
     print("Vault connection established with failsafe protocols")
 
