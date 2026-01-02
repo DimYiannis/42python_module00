@@ -1,6 +1,9 @@
 
 if __name__ == "__main__":
-    print("=== Sacred Scroll Mastery ==")
+    import alchemy
+    import alchemy.elements
+
+    print("=== Sacred Scroll Mastery ==\n")
 
     print("Testing direct module access:")
     print("alchemy.elements.create_fire():", alchemy.elements.create_fire())
@@ -8,7 +11,7 @@ if __name__ == "__main__":
     print("alchemy.elements.create_earth():", alchemy.elements.create_earth())
     print("alchemy.elements.create_air():", alchemy.elements.create_air())
 
-    print("Testing package-level access (controlled by __init__.py):")
+    print("\nTesting package-level access (controlled by __init__.py):")
     print("alchemy.create_fire():")
     print("alchemy.create_water():")
     try:
@@ -21,7 +24,7 @@ if __name__ == "__main__":
     except AttributeError:
         print("alchemy.create_air(): AttributeError (hidden, as expected)")
 
-    print("Package metadata:")
+    print("\nPackage metadata:")
     print("Version:", alchemy.__version__)
     print("Author:", alchemy.__author__)
 
